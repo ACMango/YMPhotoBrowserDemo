@@ -136,7 +136,6 @@
         return;
     }
     
-    _imageView.backgroundColor = [UIColor redColor];
     __weak typeof(self) weakSelf = self;
     [_imageView sd_setImageWithURL:item.largeImageURL placeholderImage:[UIImage imageNamed:@"111.jpg"] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
@@ -150,21 +149,9 @@
         
         if (!weakSelf) return;
         self.progressLayer.hidden = YES;
-//        if (stage == YYWebImageStageFinished) {
-//            weakSelf.maximumZoomScale = 3;
-//            if (image) {
-//                weakSelf->_itemDidLoad = YES;
-//                
-//                [weakSelf resizeSubviewSize];
-//                [weakSelf.imageView.layer addFadeAnimationWithDuration:0.1 curve:UIViewAnimationCurveLinear];
-//            }
-//        }
-
         weakSelf.maximumZoomScale = 3;
         [self resizeSubviewSize];
     }];
-    
-    
 }
 
 - (void)resizeSubviewSize {
@@ -370,12 +357,6 @@
     YMPhotoGroupCell *cell = [self cellForPage:self.currentPage];
     YMPhotoGroupItem *item = _groupItems[self.currentPage];
     
-//    if (!item.thumbClippedToTop) {
-//        NSString *imageKey = [[YYWebImageManager sharedManager] cacheKeyForURL:item.largeImageURL];
-//        if ([[YYWebImageManager sharedManager].cache getImageForKey:imageKey withType:YYImageCacheTypeMemory]) {
-//            cell.item = item;
-//        }
-//    }
     if (!cell.item) {
         cell.imageView.image = item.thumbImage;
         [cell resizeSubviewSize];
@@ -469,10 +450,7 @@
     }
     cell.progressLayer.hidden = YES;
     [CATransaction commit];
-    
-    
-    
-    
+
     if (fromView == nil) {
         self.background.image = _snapshotImage;
         [UIView animateWithDuration:animated ? 0.25 : 0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseOut animations:^{
@@ -531,8 +509,6 @@
             if (completion) completion();
         }];
     }];
-    
-    
 }
 
 - (void)dismiss {
@@ -541,9 +517,10 @@
 
 
 - (void)cancelAllImageLoad {
-//    [_cells enumerateObjectsUsingBlock:^(YYPhotoGroupCell *cell, NSUInteger idx, BOOL *stop) {
-//        [cell.imageView cancelCurrentImageRequest];
-//    }];
+    
+    for (YMPhotoGroupCell *cell in _cells) {
+        [cell.imageView sd_cancelCurrentImageLoad];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

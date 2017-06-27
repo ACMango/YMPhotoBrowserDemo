@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -48,12 +48,6 @@
                                                         <constraint firstAttribute="height" constant="15" id="dL0-rA-b75"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d7r-VB-Lbk" userLabel="OneIV">
-                                                    <rect key="frame" x="8" y="37" width="113" height="113"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="d7r-VB-Lbk" secondAttribute="height" multiplier="1:1" id="EZT-3f-T7V"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" tag="11" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M5t-K4-gLb" userLabel="TwoIV">
                                                     <rect key="frame" x="131" y="37" width="113" height="113"/>
                                                     <constraints>
@@ -82,6 +76,12 @@
                                                     <rect key="frame" x="8" y="160" width="113" height="113"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="A5q-R2-1BD" secondAttribute="height" multiplier="1:1" id="Odq-He-8S8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d7r-VB-Lbk" userLabel="OneIV">
+                                                    <rect key="frame" x="8" y="37" width="113" height="113"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="d7r-VB-Lbk" secondAttribute="height" multiplier="1:1" id="EZT-3f-T7V"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>

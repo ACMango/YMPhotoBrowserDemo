@@ -52,9 +52,14 @@
     
 //    NSLog(@"%p", cell);
     
+    
     for (int i = 0; i < self.dataArray.count; i++) {
         
         UIImageView *iv = (UIImageView *)[cell.contentView viewWithTag:i + 10];
+        if (indexPath.row%2) {
+            
+            iv.layer.contentsRect = CGRectMake(0, 0, 1, 1.5);
+        }
         [iv sd_setImageWithURL:[NSURL URLWithString:self.dataArray[i]]];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         [iv addGestureRecognizer:tap];
@@ -76,7 +81,8 @@
     for (NSUInteger i = 0, max = self.dataArray.count; i < max; i++) {
         YMPhotoGroupItem *item = [YMPhotoGroupItem new];
         item.thumbView = [contentView viewWithTag:10 + i];
-        item.largeImageURL = [NSURL URLWithString:self.dataArray[i]];
+//        item.largeImageURL = [NSURL URLWithString:self.dataArray[i]];
+        item.largeImageURL = [NSURL URLWithString:@"http://p3.ifengimg.com/a/2017_26/6ad92d135972422_size48_w676_h584.jpg"];
         [items addObject:item];
         if (i == superView.tag - 10) {
             fromView = superView;
